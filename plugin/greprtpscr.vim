@@ -1,4 +1,4 @@
-if exist('g:loaded_greprtpscr')
+if exists('g:loaded_greprtpscr')
   finish
 endif
 let g:loaded_greprtpscr = 1
