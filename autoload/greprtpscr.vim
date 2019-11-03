@@ -51,7 +51,7 @@ endfunction
 
 
 function! s:get_scripts() abort
-  let names = scriptease#capture('scriptnames')
+  let names = s:capture_command('scriptnames')
   let scripts = ''
   for line in split(names, "\n")
     if line =~# ':'
