@@ -22,19 +22,19 @@ endfunction
 
 "NOTE: rg & grep matching is case-sensitive, while ag is case-insensitive by defalt
 "NOTE: rg & ag assumes regex pattern by default, grep does not (and its -E flag produces slightly different matches)
-function! s:get_grepprg() abort
+function! s:get_grepcmd() abort
   if executable('rg')
-    let l:search_command = 'rg --vimgrep '
+    let grepcmd = 'rg --vimgrep '
   elseif executable('ag')
-    let l:search_command = 'ag -s --vimgrep '
+    let grepcmd = 'ag -s --vimgrep '
   elseif executable('grep')
-    let l:search_command = 'grep -HnIr '
+    let grepcmd = 'grep -HnIr '
     echomsg 'using GNU grep; install rg or ag for better performance'
   else
-    let l:search_command = ''
+    let grepcmd = ''
     echoerr 'no supported grepping tools found; please install rg or ag'
   endif 
-  return l:search_command
+  return grepcmd
 endfunction
 
 
@@ -48,12 +48,12 @@ function! s:get_runtimepaths() abort
 endfunction
 
 function! greprtpscr#GrepRtp(pattern) abort
-  let l:grepprg = s:get_grepprg()
-  let l:rtp_dirs = s:get_runtimepaths()
-  let l:full_command = l:grepprg . a:pattern . ' ' . l:rtp_dirs
-  call filter(l:full_command, 'v:val =~# ".vim"')
-  let l:result = systemlist(l:full_command)
-  execute 'lgetexpr l:result | lopen'
+  let grepcmd = s:get_grepcmd()
+  let rtpdirs = s:get_runtimepaths()
+  let fullcmd = grepcmd . a:pattern . ' ' . rtpdirs
+  let grepres = systemlist(fullcmd)
+  call filter(result, 'v:val =~# ".vim"')
+  execute 'lgetexpr grepres | lopen'
 endfunction
 
 
@@ -76,9 +76,9 @@ function! s:get_scripts() abort
 endfunction
 
 function! greprtpscr#GrepScr(pattern) abort
-  let l:grepprg = s:get_grepprg()
-  let l:scripts = s:get_scripts()
-  let l:full_command = l:grepprg . a:pattern . ' ' . l:scripts
-  let l:result = systemlist(l:full_command)
-  execute 'lgetexpr l:result | lopen'
+  let grepcmd = s:get_grepcmd()
+  let scripts = s:get_scripts()
+  let fullcmd = grepcmd . a:pattern . ' ' . scripts
+  let grepres= systemlist(fullcmd)
+  execute 'lgetexpr grepres | lopen'
 endfunction
