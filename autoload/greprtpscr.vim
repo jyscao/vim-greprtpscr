@@ -50,7 +50,8 @@ endfunction
 function! greprtpscr#GrepRtp(pattern) abort
   let l:grepprg = s:get_grepprg()
   let l:rtp_dirs = s:get_runtimepaths()
-  let l:full_command = l:grepprg . a:pattern . '.vim ' . l:rtp_dirs
+  let l:full_command = l:grepprg . a:pattern . ' ' . l:rtp_dirs
+  call filter(l:full_command, 'v:val =~# ".vim"')
   let l:result = systemlist(l:full_command)
   execute 'lgetexpr l:result | lopen'
 endfunction
