@@ -5,6 +5,10 @@ let g:autoloaded_greprtpscr = 1
 
 
 
+" ------------------------------
+" Helpers
+" ------------------------------
+
 " Copy of tpope's scriptease#capture function
 function! s:capture_command(excmd) abort
   try
@@ -15,7 +19,6 @@ function! s:capture_command(excmd) abort
   endtry
   return out
 endfunction
-
 
 "NOTE: rg & grep matching is case-sensitive, while ag is case-insensitive by defalt
 "NOTE: rg & ag assumes regex pattern by default, grep does not (and its -E flag produces slightly different matches)
@@ -35,6 +38,11 @@ function! s:get_grepprg() abort
 endfunction
 
 
+
+" ------------------------------
+" Runtimepath
+" ------------------------------
+
 function! s:get_runtimepaths() abort
   return substitute(s:capture_command('echon &runtimepath'), ',', ' ', 'g')
 endfunction
@@ -45,10 +53,13 @@ function! greprtpscr#GrepRtp(pattern) abort
   let l:full_command = l:grepprg . a:pattern . ' ' . l:rtp_dirs
   let l:result = systemlist(l:full_command)
   execute 'lgetexpr l:result | lopen'
-  " return systemlist(l:full_command)
 endfunction
 
 
+
+" ------------------------------
+" Scriptnames
+" ------------------------------
 
 function! s:get_scripts() abort
   let names = s:capture_command('scriptnames')
