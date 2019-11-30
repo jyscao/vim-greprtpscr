@@ -62,6 +62,7 @@ endfunction
 " Scriptnames
 " ------------------------------
 
+" Adapted from tpope's scriptease#scriptnames_qflist()
 function! s:get_scripts() abort
   let names = s:capture_command('scriptnames')
   let scripts = ''
