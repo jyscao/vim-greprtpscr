@@ -52,7 +52,8 @@ function! greprtpscr#GrepRtp(pattern) abort
   let rtpdirs = s:get_runtimepaths()
   let fullcmd = grepcmd . a:pattern . ' ' . rtpdirs
   let grepres = systemlist(fullcmd)
-  call filter(result, 'v:val =~# ".vim"')
+  call filter(grepres, 'v:val =~# "\\.vim"')
+  " TODO: filter for .vim (i.e. with literal dot)
   execute 'lgetexpr grepres | lopen'
 endfunction
 
