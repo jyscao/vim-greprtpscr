@@ -52,8 +52,9 @@ function! greprtpscr#GrepRtp(pattern) abort
   let rtpdirs = s:get_runtimepaths()
   let fullcmd = grepcmd . a:pattern . ' ' . rtpdirs
   let grepres = systemlist(fullcmd)
-  call filter(grepres, 'v:val =~# "\\.vim"')
-  " TODO: filter for .vim (i.e. with literal dot)
+  call filter(grepres, 'v:val =~# "^\\S*\\.vim"')
+  " TODO: improve .vim ft filter; currently above regex matches pattern below:
+  " -->   /home/jyscao/.cache/vimfiles/.cache/init.vim/.dein/doc/calendar.txt
   execute 'lgetexpr grepres | lopen'
 endfunction
 
