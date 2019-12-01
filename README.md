@@ -43,4 +43,4 @@ The plugin provides 2 commands:
 Both take a search query, which may be a regex pattern, as an argument.
 The location-list will then be populated with your results.
 
-<!-- Add screencast -->
+![GrepRtpScr.cast](GrepRtpScr.cast)
