@@ -47,7 +47,7 @@ The location-list will then be populated with your results.
 
 ## Demo
 
-[![asciicast](https://asciinema.org/a/8VTauXdwR7Aqhqibfh98BUC7P)](https://asciinema.org/a/8VTauXdwR7Aqhqibfh98BUC7P)
+[![asciicast](https://asciinema.org/a/8VTauXdwR7Aqhqibfh98BUC7P.svg)](https://asciinema.org/a/8VTauXdwR7Aqhqibfh98BUC7P)
 
 1. `:GrepRtp layers`: grep through `rtp` sources that contain `'layers'`
 2. searched for `'debug'` keyword, open the corresponding [SpaceVim](https://github.com/SpaceVim/SpaceVim) layer source and checkout its functionalities
