@@ -1,4 +1,4 @@
-# vim-greprtpscr
+# GrepRtpScr
 
 Plugin for **grep**ping through your Vim's **r**un**t**ime**p**ath & **scr**iptnames
 
@@ -25,7 +25,7 @@ instance.
 Using [vim-plug](https://github.com/junegunn/vim-plug):
 * `Plug 'jyscao/greprtpscr'`
 
-Using [dein](https://github.com/junegunn/vim-plug):
+Using [dein](https://github.com/Shougo/dein.vim):
 * `call dein#add('jyscao/greprtpscr')`
 
 Manually:
