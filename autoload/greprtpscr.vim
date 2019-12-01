@@ -53,7 +53,7 @@ function! greprtpscr#GrepRtp(pattern) abort
   let fullcmd = grepcmd . a:pattern . ' ' . rtpdirs
   let grepres = systemlist(fullcmd)
   call filter(grepres, 'v:val =~# "^\\S*\\.vim"')
-  " TODO: improve .vim ft filter; currently above regex matches pattern below:
+  " TODO: improve .vim ft-filter; current regex erroneously also matches line below:
   " -->   /home/jyscao/.cache/vimfiles/.cache/init.vim/.dein/doc/calendar.txt
   execute 'lgetexpr grepres | lopen'
 endfunction
