@@ -43,4 +43,13 @@ The plugin provides 2 commands:
 Both take a search query, which may be a regex pattern, as an argument.
 The location-list will then be populated with your results.
 
-![GrepRtpScr.cast](GrepRtpScr.cast)
+
+
+## Demo
+
+[![asciicast](https://asciinema.org/a/8VTauXdwR7Aqhqibfh98BUC7P)](https://asciinema.org/a/8VTauXdwR7Aqhqibfh98BUC7P)
+
+1. `:GrepRtp layers`: grep through `rtp` sources that contain `'layers'`
+2. searched for `'debug'` keyword, open the corresponding [SpaceVim](https://github.com/SpaceVim/SpaceVim) layer source and checkout its functionalities
+3. `:GrepScr markdown` grep through `scriptnames` sources that contain `'markdown'`
+4. searched for `'preview'` keyword, which corresponds to specific markdown vim-plugin in order to debug it
